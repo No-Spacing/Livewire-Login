@@ -1,7 +1,7 @@
-#Laravel-Livewire
+# Laravel-Livewire
  * A simple login with register page.
  * It uses Laravel and Livewire.
-#Setting up
+# Setting up
  * Open your command terminal inside your project folder and type the following:
    ```
    composer install
