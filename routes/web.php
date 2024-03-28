@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Login;
 use App\Livewire\Register;
-
+use App\Livewire\ForgotPassword;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 
 Route::get('/login', Login::class);
+Route::get('/forgot-password', ForgotPassword::class);
 Route::get('/register', Register::class);
