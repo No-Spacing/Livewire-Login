@@ -23,6 +23,11 @@
                     @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                     <input type="password" wire:model="password" class="form-control" id="password"/> 
                 </div>
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label">Re-Type Password</label>
+                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                    <input type="password" wire:model="password_confirmation" class="form-control" id="password"/> 
+                </div>
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-outline-primary">Create Account</button>
                     <div class="my-1 text-center">
