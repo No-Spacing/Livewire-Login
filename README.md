@@ -9,3 +9,7 @@
    php artisan key:generate
    php artisan serve
    ```
+# Screenshots
+ ![alt text](https://github.com/No-Spacing/Livewire-Login/blob/main/screenshots/sc_1.png)
+ ![alt text](https://github.com/No-Spacing/Livewire-Login/blob/main/screenshots/sc_2.png)
+ ![alt text](https://github.com/No-Spacing/Livewire-Login/blob/main/screenshots/sc_3.png)
