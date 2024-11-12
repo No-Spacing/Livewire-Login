@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Login;
 use App\Livewire\Register;
 use App\Livewire\ForgotPassword;
+use App\Livewire\Home;
+use App\Http\Middleware\UserMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +22,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', Login::class);
-Route::get('/forgot-password', ForgotPassword::class);
-Route::get('/register', Register::class);
+Route::get('/login', Login::class)->name('login');
+Route::get('/forgot_password', ForgotPassword::class)->name('forgot_password');
+Route::get('/register', Register::class)->name('register');
+Route::get('/home', Home::class)->middleware(UserMiddleware::class)->name('home');
+
+Route::get('/logout', function () {
+    Session::flush();
+    return redirect('/login');
+});
