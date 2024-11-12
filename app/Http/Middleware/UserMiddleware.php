@@ -17,7 +17,7 @@ class UserMiddleware
     {
         if(!session()->has('UserCheck') && ($request->path() != 'login' && $request->path() != 'register'))
         {
-            return redirect()->route('login')->with('message', 'User must be login.');
+            return redirect()->route('login')->with('errorMsg', 'User must be login');
         }   
 
         if(session()->has('UserCheck') && ($request->path() == 'login' || $request->path() == 'register')){
