@@ -5,6 +5,8 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\Attributes\Title;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class Login extends Component
 { 
@@ -18,9 +20,18 @@ class Login extends Component
     {
         $this->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required'
         ]);
-        // add your next logic here...
+
+        $user = User::where('email', $this->email)->first();
+    
+        if($user && Hash::check($this->password, $user->password)){
+            session()->put('UserCheck', $user->id);
+            return $this->redirect('home');
+        } else {
+            return redirect()->back()->with('errorMsg', 'Invalid Credentials');
+        }
+        
     }
 
     #[Title('Login')] 

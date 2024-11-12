@@ -6,6 +6,11 @@
         <h5 class="card-title mb-3">
             Login
         </h5>
+        @if(Session::has('errorMsg'))
+            <div class="text-center alert alert-danger">
+                    {{ Session::get('errorMsg') }}
+            </div>
+        @endif
         <form wire:submit="login">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>

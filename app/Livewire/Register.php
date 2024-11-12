@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\Attributes\Title;
+use App\Models\User;
 
 class Register extends Component
 {
@@ -13,12 +14,20 @@ class Register extends Component
 
     public function save()
     {
-        $this->validate([
+        $validated = $this->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
-        // add your next logic here...
+
+        User::create(
+            $this->only([
+                'name', 
+                'email', 
+                'password',
+            ])
+        );
+        return $this->redirect('/login');
     }
 
     #[Title('Register')]
